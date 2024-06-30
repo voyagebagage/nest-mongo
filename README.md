@@ -1,5 +1,6 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+<img src="https://cdn.cookielaw.org/logos/aa61bc99-4bbe-41c8-922a-845ae4c1c62f/018e66da-0df4-7700-9172-10dc7e1a65a8/3f49b566-3f20-4b54-b39a-57bde709c32e/MongoDB_SlateBlue.png" width="1000" alt="Nest Logo" />
 </p>
 
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
@@ -26,7 +27,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Testing my first Nest API
 
 ## Installation
 
