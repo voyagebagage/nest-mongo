@@ -14,8 +14,13 @@ export class ItemForSale {
   title: string;
   @Prop()
   description: string;
-  @Prop()
+
+  @Prop({ required: true })
   price: number;
+
+  @Prop({ required: true, default: 'usd' })
+  currency: string;
+
   @Prop()
   isSold: boolean;
   @Prop()

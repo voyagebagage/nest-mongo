@@ -8,12 +8,15 @@ import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { Query } from 'express-serve-static-core';
 import { User } from '../auth/schemas/user.schema';
+import { StripeService } from 'src/stripe/stripe.service';
+import { CreatePaymentDto } from 'src/stripe/dto/create-payment.dto';
 
 @Injectable()
 export class ItemForSaleService {
   constructor(
     @InjectModel(ItemForSale.name)
     private itemForSaleModel: mongoose.Model<ItemForSale>,
+    private readonly stripeService: StripeService,
   ) {}
 
   async findAll(query: Query): Promise<ItemForSale[]> {
@@ -67,5 +70,19 @@ export class ItemForSaleService {
 
   async delete(id: string): Promise<ItemForSale> {
     return this.itemForSaleModel.findByIdAndDelete(id).exec();
+  }
+
+  async createItemForSalePayment(
+    createPaymentDto: CreatePaymentDto,
+    // userId: string,
+  ) {
+    const { amount, currency, paymentMethodId } = createPaymentDto;
+    // Use StripeService to create a payment intent
+    const paymentIntent = await this.stripeService.createPaymentIntent(
+      amount,
+      currency,
+      paymentMethodId,
+    );
+    return paymentIntent;
   }
 }

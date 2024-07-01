@@ -25,6 +25,10 @@ export class CreateItemForSaleDto {
   readonly price: number;
 
   @IsNotEmpty()
+  @IsString()
+  readonly currency: string;
+
+  @IsNotEmpty()
   @IsBoolean()
   readonly isSold: boolean;
 

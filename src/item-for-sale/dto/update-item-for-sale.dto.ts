@@ -24,6 +24,10 @@ export class UpdateItemForSaleDto {
   readonly price: number;
 
   @IsOptional()
+  @IsString()
+  readonly currency: string;
+
+  @IsOptional()
   @IsBoolean()
   readonly isSold: boolean;
 

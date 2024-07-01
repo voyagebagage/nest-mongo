@@ -4,6 +4,7 @@ import { ItemForSaleService } from './item-for-sale.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ItemForSaleSchema } from './schema/item-for-sale.schema';
 import { AuthModule } from 'src/auth/auth.module';
+import { StripeModule } from 'src/stripe/stripe.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { AuthModule } from 'src/auth/auth.module';
     MongooseModule.forFeature([
       { name: 'ItemForSale', schema: ItemForSaleSchema },
     ]),
+    StripeModule,
   ],
   controllers: [ItemForSaleController],
   providers: [ItemForSaleService],
