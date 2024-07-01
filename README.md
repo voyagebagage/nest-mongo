@@ -41,8 +41,8 @@ $ yarn install
 nest start
 ```
 
-## Routes : 
-  ### Sign up :
+# Routes : 
+  ## Sign up :
 ```bash
 http://localhost:3000/auth/signup
 ```
@@ -54,7 +54,7 @@ example:
  "password": "" 
 }
 ```
-  ### Sign in :
+  ## Sign in :
 ```bash
 http://localhost:3000/auth/signin
 ```
@@ -89,22 +89,34 @@ http://localhost:3000/items
 http://localhost:3000/items?searchItem={your search}
 http://localhost:3000/items?page={your page}
 ```
-  ## Find one Item :
+  ### Find one Item :
 ```bash
 http://localhost:3000/items/{ID of item}
 ```
 
 ## Stripe Payment :
 
-### Create / make a payment / BUY : 
+#### Create / make a payment / BUY : 
+take the ITEM_ID from the response of '/items/add'
 
     http://localhost:3000/payments/create/{itemId}
 
 res example:
 ```json
+{
+    "user": "667d97e7ebd194267f571035",
+    "item": "6682ec1a9e36c40cda91e07a",
+    "amount": 2000,
+    "currency": "usd",
+    "paymentMethodId": "pm_card_visa",
+    "status": "succeeded",
+    "_id": "6682ee1fd6c1cc811ad46321",
+    "__v": 0
+}
 ```
 
-### Get a Payment / Payment record:
+#### Get a Payment / Payment record:
+take the PAYMENT_ID from the response of '/payments/create/'
 
     http://localhost:3000/payments/{paymentId}
 
