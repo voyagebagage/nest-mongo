@@ -6,7 +6,7 @@ import { AppService } from './app.service';
 import { ItemForSaleModule } from './item-for-sale/item-for-sale.module';
 
 import { AuthModule } from './auth/auth.module';
-import { StripeModule } from './stripe/stripe.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -17,7 +17,7 @@ import { StripeModule } from './stripe/stripe.module';
     MongooseModule.forRoot(process.env.DB_URI),
     ItemForSaleModule,
     AuthModule,
-    StripeModule,
+    PaymentModule,
     // MongooseModule.forFeature([{ name: 'User', schema: UserSchema }]),
   ],
   controllers: [AppController],

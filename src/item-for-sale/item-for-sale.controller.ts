@@ -17,7 +17,8 @@ import { UpdateItemForSaleDto } from './dto/update-item-for-sale.dto';
 import { Query as ExpressQuery } from 'express-serve-static-core';
 import { AuthGuard } from '@nestjs/passport';
 import { User } from 'src/auth/schemas/user.schema';
-import { CreatePaymentDto } from 'src/stripe/dto/create-payment.dto';
+// import { CreatePaymentDto } from 'src/stripe/dto/create-payment.dto';
+// import { CreatePayment } from 'src/stripe/schema/stripe.schema';
 
 @Controller('items')
 export class ItemForSaleController {
@@ -25,7 +26,7 @@ export class ItemForSaleController {
 
   @Get()
   async getAllItems(@Query() query: ExpressQuery): Promise<ItemForSale[]> {
-    return this.itemForSaleService.findAll(query);
+    return await this.itemForSaleService.findAll(query);
   }
 
   @Post('add')
@@ -53,18 +54,5 @@ export class ItemForSaleController {
   @Delete(':id')
   async deleteItem(@Param('id') id: string): Promise<ItemForSale> {
     return this.itemForSaleService.delete(id);
-  }
-
-  @Post('create-payment-intent')
-  @UseGuards(AuthGuard('jwt'))
-  async createItemForSalePayment(
-    @Body() createItemForSalePaymentDto: CreatePaymentDto,
-    // @Req() req: Request & { user: User },
-  ) {
-    // const userId = req.user.id;
-    return this.itemForSaleService.createItemForSalePayment(
-      createItemForSalePaymentDto,
-      // userId,
-    );
   }
 }

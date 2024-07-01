@@ -12,6 +12,7 @@ export enum Category {
 export class ItemForSale {
   @Prop()
   title: string;
+
   @Prop()
   description: string;
 
