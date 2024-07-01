@@ -89,9 +89,59 @@ http://localhost:3000/items
 http://localhost:3000/items?searchItem={your search}
 http://localhost:3000/items?page={your page}
 ```
-  ### Find one Item :
+  ## Find one Item :
 ```bash
 http://localhost:3000/items/{ID of item}
 ```
 
+## Stripe Payment :
 
+### Create / make a payment / BUY : 
+
+    http://localhost:3000/payments/create/{itemId}
+
+res example:
+```json
+```
+
+### Get a Payment / Payment record:
+
+    http://localhost:3000/payments/{paymentId}
+
+res example:
+```json
+{
+    "_id": "PAYMENT_ID",
+    "user": {
+        "_id": "USER_ID",
+        "name": "Luke",
+        "email": "luke@gmail.com",
+        "password": "$2b$10$QXlUZN5qFqHxFM.NQY.xmuh7D4l8vfNnFV6ShnZmmcOqG9FZm1uSK",
+        "createdAt": "2024-06-27T16:48:39.027Z",
+        "updatedAt": "2024-06-27T16:48:39.027Z",
+        "__v": 0
+    },
+    "item": {
+        "_id": "6682ec1a9e36c40cda91e07a",
+        "title": "Guitar",
+        "description": "entirely made of steel",
+        "price": 2000,
+        "currency": "usd",
+        "isSold": false,
+        "category": "other",
+        "images": [
+            "http://1",
+            "http://2"
+        ],
+        "user": "USER_ID",
+        "createdAt": "2024-07-01T17:49:14.031Z",
+        "updatedAt": "2024-07-01T17:49:14.031Z",
+        "__v": 0
+    },
+    "amount": 2000,
+    "currency": "usd",
+    "paymentMethodId": "pm_card_visa",
+    "status": "succeeded",
+    "__v": 0
+}
+```
