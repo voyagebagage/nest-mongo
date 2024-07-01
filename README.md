@@ -64,7 +64,7 @@ http://localhost:3000/auth/signin
  "password": ""
 }
 ```
-  ### POST new item :
+  ## POST new item :
 ```bash
 http://localhost:3000/items/add
 ```
@@ -83,20 +83,20 @@ http://localhost:3000/items/add
   
   }
 ```
-  ### List all with 2 items max per page :
+  ## List all with 2 items max per page :
 ```bash
 http://localhost:3000/items
 http://localhost:3000/items?searchItem={your search}
 http://localhost:3000/items?page={your page}
 ```
-  ### Find one Item :
+  ## Find one Item :
 ```bash
 http://localhost:3000/items/{ID of item}
 ```
 
 ## Stripe Payment :
 
-#### Create / make a payment / BUY : 
+### Create / make a payment / BUY : 
 take the ITEM_ID from the response of '/items/add'
 
     http://localhost:3000/payments/create/{itemId}
@@ -115,7 +115,7 @@ res example:
 }
 ```
 
-#### Get a Payment / Payment record:
+### Get a Payment / Payment record:
 take the PAYMENT_ID from the response of '/payments/create/'
 
     http://localhost:3000/payments/{paymentId}
